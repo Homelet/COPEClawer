@@ -67,7 +67,7 @@ class Clawer:
 		              attendance.listening < min_listening or
 		              attendance.total < min_total
 		              ]
-		self.__print_rank_table(attendance_list, test_date, passed, not_passed, sort_method=self.sort_by_reading)
+		self.__print_rank_table(attendance_list, test_date, passed, not_passed, sort_method=self.sort_by_total)
 	
 	
 	def __analysis_result(self, test_result):
@@ -111,7 +111,7 @@ class Clawer:
 		std_writing = np.std([attendance.writing for attendance in data])
 		std_total = np.std([attendance.total for attendance in data])
 		std_top = np.std([attendance.TOP for attendance in data if attendance.TOP is not None])
-		print("Test Date : {}\n"
+		print("\nTest Date : {}\n"
 		      "Total attendance : {}\n"
 		      "Total attendance passed: {}\n"
 		      "Rate For passing : {:3.2f}%\n"
@@ -131,9 +131,9 @@ class Clawer:
 				average_top, std_top,
 		)
 		)
-		print("===================Passed===================")
+		print("=================== Passed ===================")
 		self.__print_by_tabulate(passed)
-		print("=================Not Passed=================")
+		print("\n================= Not Passed =================")
 		self.__print_by_tabulate(not_passed)
 	
 	
